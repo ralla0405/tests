@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/jpashop;
+    url: jdbc:h2:mem:test #스프링 부트 기본설정은 메모리 모드이기 때문에 설정이 없어도 된다.
     username: sa
     password:
     driver-class-name: org.h2.Driver
