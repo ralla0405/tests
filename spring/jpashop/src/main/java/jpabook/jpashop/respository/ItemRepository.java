@@ -17,7 +17,7 @@ public class ItemRepository {
         if (item.getId() == null) {
             em.persist(item);
         } else {
-            // update 와 비슷
+            // 모든 값을 교체하기 때문에 실무에서 위험하다 -> 변경감지를 사용해야한다.
             em.merge(item);
         }
     }
