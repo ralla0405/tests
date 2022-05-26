@@ -40,6 +40,7 @@ public class MemberApiController {
     // 엔티티 노출은 위험하다
     @PostMapping("/api/v1/members")
     public CreateMemberResponse saveMemberV1(@RequestBody @Valid Member member) {
+
         Long id = memberService.join(member);
         return new CreateMemberResponse(id);
     }
@@ -51,6 +52,7 @@ public class MemberApiController {
      */
     @PostMapping("/api/v2/members")
     public CreateMemberResponse saveMemberV2(@RequestBody @Valid CreateMemberRequest request) {
+
         Member member = new Member();
         member.setName(request.getName());
 
@@ -68,6 +70,7 @@ public class MemberApiController {
     public UpdateMemberResponse updateMemberV2(
             @PathVariable("id") Long id,
             @RequestBody @Valid UpdateMemberRequest request) {
+
         memberService.update(id, request.getName());
         Member findMember = memberService.findOne(id);
         return new UpdateMemberResponse(findMember.getId(), findMember.getName());
@@ -75,25 +78,28 @@ public class MemberApiController {
 
     @Data
     static class UpdateMemberRequest {
+
         private String name;
     }
 
     @Data
     @AllArgsConstructor
     static class UpdateMemberResponse {
+
         private Long id;
         private String name;
     }
 
     @Data
     static class CreateMemberRequest {
+
         private String name;
     }
 
     @Data
     static class CreateMemberResponse {
-        private Long id;
 
+        private Long id;
         public CreateMemberResponse(Long id) {
             this.id = id;
         }
