@@ -21,7 +21,7 @@ public class Member {
     @Embedded
     private Address address;
 
-//    @JsonIgnore 엔티티 조회시 json 반환 무시
+    @JsonIgnore // 엔티티 조회시 json 반환 무시
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 }
