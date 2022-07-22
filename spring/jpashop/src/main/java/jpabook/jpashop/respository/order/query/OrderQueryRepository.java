@@ -74,4 +74,7 @@ public class OrderQueryRepository {
   }
 
 
+  public List<OrderQueryDto> findAllByDto_flat() {
+
+  }
 }
