@@ -6,6 +6,7 @@ spring:
     driver-class-name: org.h2.Driver
 
   jpa:
+#    open-in-view: false # false 로 하면 controller, view 지연로딩이 불가하다
     hibernate:
       ddl-auto: create
     properties:
